@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //asyn, await
+         
+        async function userdata(){
+            try{
+                let data=await fetch("https://dummyjson.com/products");
+                let updateddata=await data.json();
+                console.log(updateddata);
+            }
+            catch(error){
+                console.log("Not Fetched" + error);
+            }
+        }
+        userdata();
+        
+        let userInfo={
+            age: 23
+            mob: 1234567890
+            email: "user@example.com"
+        }
+        //convert Json to string
+        localStorage.setItem("preferences", JSON.stringify(userInfo));
+        
+        //retrive the string and parse it back it back into an object  
+        let parsedPreferences=JSON.parse(storedPreferences);
+        console.log(parsedPreferences);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
